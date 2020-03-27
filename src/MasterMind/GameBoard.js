@@ -1,9 +1,11 @@
-import React from 'react';
-import './GameBoard.css';
-import CodePeg from './CodePeg';
-import TurnKeyPegs from './TurnKeyPegs';
+import React from "react";
+import { connect } from "react-redux";
+import "./GameBoard.css";
+import CodePeg from "./CodePeg";
+import TurnKeyPegs from "./TurnKeyPegs";
+import { newGame, checkPattern } from "./actions";
 
-function GameBoard() {
+const GameBoard = (game, onNewGameClick) => {
   return (
     <table className="GameBoard">
       <thead>
@@ -17,15 +19,32 @@ function GameBoard() {
       </thead>
       <tbody>
         <tr>
-          <td><CodePeg /></td>
-          <td><CodePeg /></td>
-          <td><CodePeg /></td>
-          <td><CodePeg /></td>
-          <td><TurnKeyPegs /></td>
+          <td>
+            <CodePeg />
+          </td>
+          <td>
+            <CodePeg />
+          </td>
+          <td>
+            <CodePeg />
+          </td>
+          <td>
+            <CodePeg />
+          </td>
+          <td>
+            <TurnKeyPegs />
+          </td>
         </tr>
       </tbody>
     </table>
   );
-}
+};
 
-export default GameBoard;
+const mapStateToProps = state => ({
+  game: state.mastermind
+});
+const mapDispatchToProps = dispatch => ({
+  onNewGameClick: () => dispatch(newGame())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameBoard);
