@@ -1,0 +1,32 @@
+.TurnKeyPegs {
+  width: 48px;
+}
+
+.TurnKeyPegItem {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;;
+  display: inline-block;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+}
+.TurnKeyPegItem:before {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  content: ' ';
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 3px auto;
+}
+
+.TurnKeyPegItemBlack:before {
+  border-color: #282c34;
+  background-color: #000;
+}
+
+.TurnKeyPegItemWhite:before {
+  border-color: #282c34;
+  background-color: #FFF;
+}

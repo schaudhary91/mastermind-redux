@@ -1,15 +1,18 @@
-body {
-  background-color: #282c34;
-}
-
 .App {
   color: #FFF;
 }
 
 .App-header {
+  color: #fca412;
+  padding: 24px;
   text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App-container {
+  background-color: #fff;
+  border-radius: 5px;
+  color: #000;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 24px;
 }
