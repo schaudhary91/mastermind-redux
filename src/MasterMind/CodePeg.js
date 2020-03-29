@@ -1,15 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
 
-const colorOptions = [
-  { value: 'blue', label: 'Blue', color: '#0052CC'},
-  { value: 'red', label: 'Red', color: '#FF5630'},
-  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-  { value: 'green', label: 'Green', color: '#36B37E' },
-  { value: 'white', label: 'White', color: '#FFF' },
-  { value: 'black', label: 'Black', color: '#000' },
-];
-
 const dot = (color = '#ccc') => ({
   alignItems: 'center',
   display: 'flex',
@@ -37,7 +28,7 @@ const colorStyles = {
   singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };
 
-function Color() {
+function CodePeg({colorOptions}) {
   return (
     <Select
       label="Select color"
@@ -47,4 +38,4 @@ function Color() {
   );
 }
 
-export default Color;
+export default CodePeg;

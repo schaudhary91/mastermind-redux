@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import "./GameBoard.css";
 import CodePeg from "./CodePeg";
 import TurnKeyPegs from "./TurnKeyPegs";
-import { newGame, checkPattern } from "./actions";
+import { newGame } from "./actions";
 
-const GameBoard = (game, onNewGameClick) => {
-  return (
+const GameBoard = ({ game, onNewGameClick }) => {
+  console.log(game.pattern);
+  return game.playing ? (
     <table className="GameBoard">
       <thead>
         <tr>
@@ -20,16 +21,16 @@ const GameBoard = (game, onNewGameClick) => {
       <tbody>
         <tr>
           <td>
-            <CodePeg />
+            <CodePeg colorOptions={game.colorOptions} />
           </td>
           <td>
-            <CodePeg />
+            <CodePeg colorOptions={game.colorOptions} />
           </td>
           <td>
-            <CodePeg />
+            <CodePeg colorOptions={game.colorOptions} />
           </td>
           <td>
-            <CodePeg />
+            <CodePeg colorOptions={game.colorOptions} />
           </td>
           <td>
             <TurnKeyPegs />
@@ -37,6 +38,8 @@ const GameBoard = (game, onNewGameClick) => {
         </tr>
       </tbody>
     </table>
+  ) : (
+    <button onClick={() => onNewGameClick()}>New Game</button>
   );
 };
 
