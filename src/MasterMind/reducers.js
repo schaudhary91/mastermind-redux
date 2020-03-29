@@ -135,12 +135,28 @@ export const mastermind = (
             ...state,
             patternSolved: true,
             showPattern: true,
+            pastTurns: [
+              ...state.pastTurns,
+              {
+                resultPegs,
+                checkedPattern: [...pattern],
+              },
+            ],
+            currentTurn: state.currentTurn + 1,
           };
         } else {
           return {
             ...state,
             gameOver: true,
             showPattern: true,
+            pastTurns: [
+              ...state.pastTurns,
+              {
+                resultPegs,
+                checkedPattern: [...pattern],
+              },
+            ],
+            currentTurn: state.currentTurn + 1,
           }
         }
       }

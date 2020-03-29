@@ -72,7 +72,14 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
       <div className="GameBoard__buttons-right-aligned">
         <button onClick={() => onNewGameClick()}>Reset Game</button>
       </div>
-      {game.patternSolved ? <h2>Pattern Solved !</h2> : ''}
+      {game.patternSolved ? (
+        <h2>
+          Congratulations you solved the code sequence in{' '}
+          {game.pastTurns.length} turns !
+        </h2>
+      ) : (
+        ''
+      )}
       {game.gameOver ? <h2>Game Over</h2> : ''}
       <table className="GameBoard">
         <tbody>
@@ -124,54 +131,58 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
               <hr />
             </td>
           </tr>
-          {emptyRows}
-          <tr>
-            <td>{game.currentTurn}</td>
-            <td>
-              <CodePeg
-                colorOptions={game.colorOptions}
-                disabled={game.patternSolved || game.gameOver}
-                onColorChange={color => {
-                  currentPattern[0] = color;
-                }}
-              />
-            </td>
-            <td>
-              <CodePeg
-                colorOptions={game.colorOptions}
-                disabled={game.patternSolved || game.gameOver}
-                onColorChange={color => {
-                  currentPattern[1] = color;
-                }}
-              />
-            </td>
-            <td>
-              <CodePeg
-                colorOptions={game.colorOptions}
-                disabled={game.patternSolved || game.gameOver}
-                onColorChange={color => {
-                  currentPattern[2] = color;
-                }}
-              />
-            </td>
-            <td>
-              <CodePeg
-                colorOptions={game.colorOptions}
-                disabled={game.patternSolved || game.gameOver}
-                onColorChange={color => {
-                  currentPattern[3] = color;
-                }}
-              />
-            </td>
-            <td>
-              <button
-                disabled={game.patternSolved || game.gameOver}
-                onClick={() => onCheckPatternClick()}
-              >
-                Check
-              </button>
-            </td>
-          </tr>
+          {!game.gameOver && !game.patternSolved ? emptyRows : ''}
+          {!game.gameOver && !game.patternSolved ? (
+            <tr>
+              <td>{game.currentTurn}</td>
+              <td>
+                <CodePeg
+                  colorOptions={game.colorOptions}
+                  disabled={game.patternSolved || game.gameOver}
+                  onColorChange={color => {
+                    currentPattern[0] = color;
+                  }}
+                />
+              </td>
+              <td>
+                <CodePeg
+                  colorOptions={game.colorOptions}
+                  disabled={game.patternSolved || game.gameOver}
+                  onColorChange={color => {
+                    currentPattern[1] = color;
+                  }}
+                />
+              </td>
+              <td>
+                <CodePeg
+                  colorOptions={game.colorOptions}
+                  disabled={game.patternSolved || game.gameOver}
+                  onColorChange={color => {
+                    currentPattern[2] = color;
+                  }}
+                />
+              </td>
+              <td>
+                <CodePeg
+                  colorOptions={game.colorOptions}
+                  disabled={game.patternSolved || game.gameOver}
+                  onColorChange={color => {
+                    currentPattern[3] = color;
+                  }}
+                />
+              </td>
+              <td>
+                <button
+                  disabled={game.patternSolved || game.gameOver}
+                  onClick={() => onCheckPatternClick()}
+                >
+                  Check
+                </button>
+              </td>
+            </tr>
+          ) : (
+            ''
+          )}
           {pastRows}
         </tbody>
       </table>
