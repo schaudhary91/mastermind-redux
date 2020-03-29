@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GameBoard from './MasterMind/GameBoard';
+import Rules from './MasterMind/Rules';
 
 function App() {
   return (
@@ -10,7 +11,12 @@ function App() {
       </header>
       <section className="App-container">
         <GameBoard />
+        <br /><br /><hr/><br /><br />
+        <Rules/>
       </section>
+      <footer className="App-footer">
+      Create with &hearts; by - <a target="_blank" href="http://www.sandeepchaudhary.com">Sandeep Chaudhary</a>
+      </footer>
     </div>
   );
 }

@@ -2,6 +2,17 @@
   color: #FFF;
 }
 
+.App-footer {
+  text-align: right;
+  padding: 24px;
+  margin: 0 0 150px 0;
+}
+
+
+.App-footer a {
+  color: #FFF;
+}
+
 .App-header {
   color: #fca412;
   padding: 0 24px;

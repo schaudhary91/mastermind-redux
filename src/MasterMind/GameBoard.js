@@ -69,7 +69,9 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
 
   return game.playing ? (
     <div>
-      <button onClick={() => onNewGameClick()}>Reset Game</button>
+      <div className="GameBoard__buttons-right-aligned">
+        <button onClick={() => onNewGameClick()}>Reset Game</button>
+      </div>
       {game.patternSolved ? <h2>Pattern Solved !</h2> : ''}
       {game.gameOver ? <h2>Game Over</h2> : ''}
       <table className="GameBoard">
@@ -175,7 +177,9 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
       </table>
     </div>
   ) : (
-    <button onClick={() => onNewGameClick()}>New Game</button>
+    <div className="GameBoard__buttons-center-aligned">
+      <button onClick={() => onNewGameClick()}>New Game</button>
+    </div>
   );
 };
 
