@@ -128,6 +128,7 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
             <td>
               <CodePeg
                 colorOptions={game.colorOptions}
+                disabled={game.patternSolved || game.gameOver}
                 onColorChange={color => {
                   currentPattern[0] = color;
                 }}
@@ -136,6 +137,7 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
             <td>
               <CodePeg
                 colorOptions={game.colorOptions}
+                disabled={game.patternSolved || game.gameOver}
                 onColorChange={color => {
                   currentPattern[1] = color;
                 }}
@@ -144,6 +146,7 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
             <td>
               <CodePeg
                 colorOptions={game.colorOptions}
+                disabled={game.patternSolved || game.gameOver}
                 onColorChange={color => {
                   currentPattern[2] = color;
                 }}
@@ -152,13 +155,19 @@ const GameBoard = ({ game, onNewGameClick, onCheckPatternClick }) => {
             <td>
               <CodePeg
                 colorOptions={game.colorOptions}
+                disabled={game.patternSolved || game.gameOver}
                 onColorChange={color => {
                   currentPattern[3] = color;
                 }}
               />
             </td>
             <td>
-              <button onClick={() => onCheckPatternClick()}>Check</button>
+              <button
+                disabled={game.patternSolved || game.gameOver}
+                onClick={() => onCheckPatternClick()}
+              >
+                Check
+              </button>
             </td>
           </tr>
           {pastRows}
