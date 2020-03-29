@@ -80,6 +80,8 @@ export const mastermind = (
         showPattern: false,
         gameOver: false,
         patternSolved: false,
+        currentTurn: 1,
+        pastTurns: [],
       };
     }
     
