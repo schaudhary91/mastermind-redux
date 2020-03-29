@@ -19,21 +19,24 @@ const dot = (color = '#ccc') => ({
 
 const colorStyles = {
   control: styles => ({ ...styles, backgroundColor: 'white' }),
-  option: (styles, { data }) => ({ 
-    ...styles, 
-    ...dot(data.color) 
+  option: (styles, { data }) => ({
+    ...styles,
+    ...dot(data.color),
   }),
   input: styles => ({ ...styles, ...dot() }),
   placeholder: styles => ({ ...styles, ...dot() }),
   singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };
 
-function CodePeg({colorOptions}) {
+function CodePeg({ colorOptions, onColorChange, disabled, value }) {
   return (
     <Select
       label="Select color"
       options={colorOptions}
       styles={colorStyles}
+      onChange={onColorChange}
+      isDisabled={disabled}
+      value={value}
     />
   );
 }

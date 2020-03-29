@@ -4,7 +4,9 @@ export const newGame = () => ({
 });
 
 export const CHECK_PATTERN = 'CHECK_PATTERN';
-export const checkPattern = (patern) => ({
+export const checkPattern = pattern => ({
   type: CHECK_PATTERN,
-  payload: { patern },
+  payload: {
+    pattern,
+  },
 });
