@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Rules({ colorOptions, onColorChange, disabled, value }) {
+function Rules() {
   return (
     <section>
       <strong>How to play this game:</strong>
